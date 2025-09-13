@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Add Product – Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-body">
+
+  <div class="admin-container">
+    <aside class="admin-sidebar">
+      <h2>EcomStore 🛠</h2>
+      <ul>
+        <li><a href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="admin-products.html" class="active">Manage Products</a></li>
+        <li><a href="admin-orders.html">Orders</a></li>
+        <li><a href="admin-users.html">Users</a></li>
+      </ul>
+    </aside>
+
+    <main class="admin-main">
+      <h1>➕ Add New Product</h1>
+
+      <form class="form-box">
+        <label>Product Name</label>
+        <input type="text" placeholder="Enter product name" required />
+
+        <label>Price ($)</label>
+        <input type="number" placeholder="Enter price" required />
+
+        <label>Stock Quantity</label>
+        <input type="number" placeholder="Available stock" required />
+
+        <label>Product Image URL</label>
+        <input type="text" placeholder="https://example.com/image.jpg" />
+
+        <label>Description</label>
+        <textarea rows="5" placeholder="Product description"></textarea>
+
+        <button type="submit" class="btn-auth">Add Product</button>
+      </form>
+    </main>
+  </div>
+
+</body>
+</html>

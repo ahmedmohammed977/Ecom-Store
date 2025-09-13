@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>My Favorites – EcomStore</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .wishlist-section {
+      padding: 40px;
+    }
+
+    .wishlist-box {
+      max-width: 1200px;
+      margin: auto;
+    }
+
+    .wishlist-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+    }
+
+    .product-card img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border-radius: 10px;
+    }
+
+    .product-card h3 {
+      font-size: 1.1rem;
+      margin: 10px 0 5px;
+    }
+
+    .product-card p {
+      font-weight: bold;
+      color: #28a745;
+      margin-bottom: 10px;
+    }
+
+    .btn-shop {
+      display: inline-block;
+      background-color: #007bff;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      margin-right: 8px;
+      font-size: 0.9rem;
+    }
+
+    .remove-btn {
+      display: inline-block;
+      background-color: #dc3545;
+      color: #fff;
+      padding: 6px 12px;
+      border-radius: 5px;
+      text-decoration: none;
+      font-size: 0.9rem;
+      cursor: pointer;
+    }
+
+    .empty-msg {
+      text-align: center;
+      color: #777;
+      font-size: 1.1rem;
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <h1 class="logo">EcomStore</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="favorites.html" class="active">Favorites</a></li>
+        </ul>
+      </nav>
+      <a class="btn-login" href="login.html">Login</a>
+    </div>
+  </header>
+
+  <section class="wishlist-section">
+    <div class="wishlist-box">
+      <h2>💖 Your Favorites</h2>
+      <div class="wishlist-grid" id="favoritesContainer">
+        <!-- Filled dynamically with JS -->
+      </div>
+      <p id="emptyMessage" class="empty-msg" style="display:none;">You have no favorites yet.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 EcomStore. All rights reserved.</p>
+    <div class="social">
+      <a href="#">📘</a>
+      <a href="#">📸</a>
+      <a href="#">🐦</a>
+    </div>
+  </footer>
+
+  <script>
+    function renderFavorites() {
+      const container = document.getElementById('favoritesContainer');
+      const emptyMsg = document.getElementById('emptyMessage');
+      container.innerHTML = '';
+
+      const favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+
+      if (favorites.length === 0) {
+        emptyMsg.style.display = 'block';
+        return;
+      }
+
+      emptyMsg.style.display = 'none';
+
+      favorites.forEach((item, index) => {
+        const card = document.createElement('div');
+        card.className = 'product-card';
+        card.innerHTML = `
+          <img src="${item.image}" alt="${item.name}">
+          <h3>${item.name}</h3>
+          <p>$${item.price}</p>
+          <a href="product-details.html" class="btn-shop">View Details</a>
+          <span class="remove-btn" onclick="removeFavorite(${index})">Remove</span>
+        `;
+        container.appendChild(card);
+      });
+    }
+
+    function removeFavorite(index) {
+      let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
+      favorites.splice(index, 1);
+      localStorage.setItem('favorites', JSON.stringify(favorites));
+      renderFavorites();
+    }
+
+    // Run on page load
+    renderFavorites();
+  </script>
+
+</body>
+</html>

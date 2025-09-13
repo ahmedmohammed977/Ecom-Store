@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Edit Product – Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-body">
+
+  <div class="admin-container">
+    <aside class="admin-sidebar">
+      <h2>EcomStore 🛠</h2>
+      <ul>
+        <li><a href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="admin-products.html" class="active">Manage Products</a></li>
+        <li><a href="admin-orders.html">Orders</a></li>
+        <li><a href="admin-users.html">Users</a></li>
+      </ul>
+    </aside>
+
+    <main class="admin-main">
+      <h1>✏️ Edit Product</h1>
+
+      <!-- Smart Watch -->
+      <form class="form-box">
+        <label>Product Name</label>
+        <input type="text" value="Smart Watch" required />
+
+        <label>Price ($)</label>
+        <input type="number" value="40" required />
+
+        <label>Stock Quantity</label>
+        <input type="number" value="25" required />
+
+        <label>Product Image URL</label>
+        <input type="text" value="assets/product-1.jpg" />
+
+        <label>Description</label>
+        <textarea rows="5">A modern smart watch with fitness tracking features.</textarea>
+
+        <button type="submit" class="btn-auth">Update Product</button>
+      </form>
+
+      <!-- Bluetooth Headset -->
+      <form class="form-box">
+        <label>Product Name</label>
+        <input type="text" value="Bluetooth Headset" required />
+
+        <label>Price ($)</label>
+        <input type="number" value="30" required />
+
+        <label>Stock Quantity</label>
+        <input type="number" value="40" required />
+
+        <label>Product Image URL</label>
+        <input type="text" value="assets/bluetooth-headset.jpg" />
+
+        <label>Description</label>
+        <textarea rows="5">High-quality Bluetooth headset with noise cancellation and long battery life.</textarea>
+
+        <button type="submit" class="btn-auth">Update Product</button>
+      </form>
+
+      <!-- Wireless Mouse -->
+      <form class="form-box">
+        <label>Product Name</label>
+        <input type="text" value="Wireless Mouse" required />
+
+        <label>Price ($)</label>
+        <input type="number" value="20" required />
+
+        <label>Stock Quantity</label>
+        <input type="number" value="60" required />
+
+        <label>Product Image URL</label>
+        <input type="text" value="assets/wireless-mouse.jpg" />
+
+        <label>Description</label>
+        <textarea rows="5">Compact and ergonomic wireless mouse with fast response and battery efficiency.</textarea>
+
+        <button type="submit" class="btn-auth">Update Product</button>
+      </form>
+
+      <!-- Gaming Keyboard -->
+      <form class="form-box">
+        <label>Product Name</label>
+        <input type="text" value="Gaming Keyboard" required />
+
+        <label>Price ($)</label>
+        <input type="number" value="70" required />
+
+        <label>Stock Quantity</label>
+        <input type="number" value="15" required />
+
+        <label>Product Image URL</label>
+        <input type="text" value="assets/gaming-keyboard.jpg" />
+
+        <label>Description</label>
+        <textarea rows="5">RGB mechanical gaming keyboard with customizable keys and fast response rate.</textarea>
+
+        <button type="submit" class="btn-auth">Update Product</button>
+      </form>
+
+    </main>
+  </div>
+
+</body>
+</html>

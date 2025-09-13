@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <title>Login – Dashboard</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    body.auth-body {
+      min-height: 100vh;
+      background: linear-gradient(135deg, #1d2671, #c33764);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Segoe UI', sans-serif;
+      margin: 0;
+    }
+
+    .auth-container {
+      width: 350px;
+      background: rgba(255, 255, 255, 0.06);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+      backdrop-filter: blur(10px);
+      text-align: center;
+    }
+
+    .auth-form h2 {
+      color: #fff;
+      margin-bottom: 1.5rem;
+    }
+
+    .auth-form input {
+      width: 100%;
+      padding: 0.75rem;
+      margin: 0.5rem 0;
+      border: none;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.1);
+      color: white;
+      font-size: 1rem;
+    }
+
+    .btn-auth {
+      width: 100%;
+      padding: 0.8rem;
+      margin-top: 1rem;
+      background: #29b6f6;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    .btn-auth:hover {
+      background: #0288d1;
+    }
+
+    .signup-link {
+      display: block;
+      margin-top: 1.5rem;
+      color: #eee;
+      text-decoration: none;
+      font-size: 0.95rem;
+    }
+
+    .signup-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body class="auth-body">
+
+  <div class="auth-container">
+    <form class="auth-form">
+  <h2>👤 Login</h2>
+  <input type="text" placeholder="Username" required />
+  <input type="password" placeholder="Password" required />
+  <button type="submit" class="btn-auth">Login</button>
+
+  <!-- رابط نسيت كلمة السر -->
+  <a href="forgot-password.html" class="signup-link" style="margin-top: 1rem;">Forgot your password?</a>
+
+  <!-- رابط إنشاء حساب -->
+  <a href="signup.html" class="signup-link">Don't have an account? Sign up</a>
+</form>
+
+  </div>
+
+</body>
+</html>

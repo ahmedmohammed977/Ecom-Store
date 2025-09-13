@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Checkout - EcomStore</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #e0eafc, #cfdef3);
+      padding: 2rem;
+    }
+
+    .checkout-container {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 2rem;
+    }
+
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid #ddd;
+      padding: 1rem 0;
+    }
+
+    .item-name {
+      font-weight: bold;
+    }
+
+    .total {
+      text-align: right;
+      margin-top: 2rem;
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #555;
+    }
+
+    .btn {
+      background-color: #28a745;
+      color: white;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 1rem;
+      display: block;
+      margin: 2rem auto 0;
+      transition: 0.3s ease;
+    }
+
+    .btn:hover {
+      background-color: #218838;
+    }
+
+    @media (max-width: 600px) {
+      .item {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .item-price {
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="checkout-container">
+    <h2>Order Review</h2>
+
+    <div id="items-list">
+      <!-- Items will be inserted here via JS -->
+    </div>
+
+    <div class="total" id="total-amount">Total: $0</div>
+
+    <button class="btn">Confirm Purchase</button>
+  </div>
+
+  <script>
+    function loadCheckout() {
+      const itemsList = document.getElementById('items-list');
+      const totalAmount = document.getElementById('total-amount');
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      let total = 0;
+
+      itemsList.innerHTML = ''; // Clear content
+
+      if (cart.length === 0) {
+        itemsList.innerHTML = '<p>Your cart is empty.</p>';
+        totalAmount.textContent = 'Total: $0';
+        return;
+      }
+
+      cart.forEach(item => {
+        total += item.price;
+
+        itemsList.innerHTML += `
+          <div class="item">
+            <span class="item-name">${item.name}</span>
+            <span class="item-price">$${item.price}</span>
+          </div>
+        `;
+      });
+
+      totalAmount.textContent = `Total: $${total}`;
+    }
+
+    // Run on page load
+    loadCheckout();
+  </script>
+
+</body>
+</html>

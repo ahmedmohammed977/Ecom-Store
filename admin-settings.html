@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Settings – Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-body">
+
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <h2>EcomStore 🛠</h2>
+      <ul>
+        <li><a href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="admin-products.html">Manage Products</a></li>
+        <li><a href="admin-orders.html">Orders</a></li>
+        <li><a href="admin-users.html">Users</a></li>
+        <li><a href="admin-customers.html">Customers</a></li>
+        <li><a href="admin-reviews.html">Reviews</a></li>
+        <li><a href="admin-reports.html">Reports</a></li>
+        <li><a href="admin-settings.html" class="active">Settings</a></li>
+        <li><a href="admin-roles.html">Roles</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main -->
+    <main class="admin-main">
+      <h1>⚙️ General Settings</h1>
+
+      <form class="form-box">
+        <label>Store Name</label>
+        <input type="text" placeholder="EcomStore" />
+
+        <label>Official Email</label>
+        <input type="email" placeholder="admin@ecomstore.com" />
+
+        <label>Language</label>
+        <select>
+          <option>English</option>
+          <option>العربية</option>
+          <option>Français</option>
+        </select>
+
+        <label>Default Currency</label>
+        <select>
+          <option>$ – USD</option>
+          <option>€ – EUR</option>
+          <option>ج.م – EGP</option>
+        </select>
+
+        <label>Maintenance Mode</label>
+        <select>
+          <option>Off</option>
+          <option>On</option>
+        </select>
+
+        <button type="submit" class="btn-auth">Save Settings</button>
+      </form>
+    </main>
+  </div>
+
+</body>
+</html>

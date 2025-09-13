@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Reports – Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+</head>
+<body class="admin-body">
+
+  <div class="admin-container">
+    <aside class="admin-sidebar">
+      <h2>EcomStore 🛠</h2>
+      <ul>
+        <li><a href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="admin-products.html">Manage Products</a></li>
+        <li><a href="admin-orders.html">Orders</a></li>
+        <li><a href="admin-users.html">Users</a></li>
+        <li><a href="admin-customers.html">Customers</a></li>
+        <li><a href="admin-reviews.html">Reviews</a></li>
+        <li><a href="admin-reports.html" class="active">Reports</a></li>
+        <li><a href="admin-settings.html">Settings</a></li>
+        <li><a href="admin-roles.html">Roles</a></li>
+      </ul>
+    </aside>
+
+    <main class="admin-main">
+      <h1>📄 Reports & Exports</h1>
+
+      <div class="report-section">
+        <h2>Sales Report – July 2025</h2>
+        <button class="btn-pdf">⬇️ Download PDF</button>
+
+        <table class="admin-table" style="margin-top: 1rem;">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Product</th>
+              <th>Units Sold</th>
+              <th>Total Revenue</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Smart Watch</td>
+              <td>140</td>
+              <td>$5,600</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Wireless Headphones</td>
+              <td>90</td>
+              <td>$2,250</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </main>
+  </div>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const tableBody = document.querySelector("tbody");
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+    if (cart.length === 0) {
+      tableBody.innerHTML = `
+        <tr>
+          <td colspan="4" style="text-align:center; padding: 1rem;">No products selected yet.</td>
+        </tr>
+      `;
+      return;
+    }
+
+    let html = "";
+    let index = 1;
+
+    cart.forEach(product => {
+      const quantity = product.quantity || 1; // في cart.html انت حاطت الكمية = 1 دايمًا
+      const total = (product.price * quantity).toFixed(2);
+      html += `
+        <tr>
+          <td>${index++}</td>
+          <td>${product.name}</td>
+          <td>${quantity}</td>
+          <td>$${total}</td>
+        </tr>
+      `;
+    });
+
+    tableBody.innerHTML = html;
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Roles & Permissions – Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-body">
+
+  <div class="admin-container">
+    <aside class="admin-sidebar">
+      <h2>EcomStore 🛠</h2>
+      <ul>
+        <li><a href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="admin-products.html">Manage Products</a></li>
+        <li><a href="admin-orders.html">Orders</a></li>
+        <li><a href="admin-users.html">Users</a></li>
+        <li><a href="admin-customers.html">Customers</a></li>
+        <li><a href="admin-reviews.html">Reviews</a></li>
+        <li><a href="admin-reports.html">Reports</a></li>
+        <li><a href="admin-settings.html">Settings</a></li>
+        <li><a href="admin-roles.html" class="active">Roles</a></li>
+      </ul>
+    </aside>
+
+    <main class="admin-main">
+      <h1>🔐 Roles & Permissions</h1>
+
+      <table class="admin-table" style="margin-top: 2rem;">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Current Role</th>
+            <th>Change Role</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Admin Master</td>
+            <td>admin@ecom.com</td>
+            <td><span class="badge admin">Admin</span></td>
+            <td>
+              <select>
+                <option>Admin</option>
+                <option>Moderator</option>
+              </select>
+            </td>
+            <td><button class="btn-edit">Update</button></td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Fatma Omar</td>
+            <td>fatma@ecom.com</td>
+            <td><span class="badge mod">Moderator</span></td>
+            <td>
+              <select>
+                <option>Moderator</option>
+                <option>Admin</option>
+              </select>
+            </td>
+            <td><button class="btn-edit">Update</button></td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+</body>
+</html>

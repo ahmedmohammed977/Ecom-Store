@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home – EcomStore</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background: black;
+      overflow-x: hidden;
+      padding-top: 56px; /* لتجنب اختفاء المحتوى تحت navbar */
+    }
+
+    .product-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: center;
+      padding: 2rem;
+    }
+
+    .product-card {
+      background: white;
+      border-radius: 15px;
+      padding: 1.5rem;
+      text-align: center;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      width: 220px;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: cover;
+      border-radius: 10px;
+      box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+      margin-bottom: 1rem;
+    }
+
+    .animated-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+      background: url(Back-Photo.jpg) repeat;
+      background-size: cover;
+      opacity: 0.15;
+      animation: scrollBackground 60s linear infinite;
+    }
+
+    @keyframes scrollBackground {
+      from { background-position: 0 0; }
+      to { background-position: 0 1000px; }
+    }
+
+    .hero {
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: white;
+      animation: fadeIn 2s ease-in;
+      padding: 2rem;
+    }
+
+    .hero h2 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      text-shadow: 0 0 15px #000;
+      animation: slideInDown 1.5s ease forwards;
+    }
+
+    .offcanvas-body a {
+      color: white;
+      text-decoration: none;
+      display: block;
+      padding: 10px 0;
+      font-weight: 500;
+    }
+
+    .offcanvas-body a:hover {
+      color: #ff6f61;
+    }
+
+    .btn-login {
+      margin-top: 1rem;
+    }
+
+    .btn-shop {
+      padding: 12px 25px;
+      font-size: 1.1rem;
+      background-color: #ff6f61;
+      border: none;
+      color: white;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 15px #ff6f61;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      animation: pulse 2s infinite;
+    }
+
+    .btn-shop:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 30px #ff6f61;
+    }
+
+    .categories, .featured-products {
+      opacity: 0;
+      transform: translateY(100px);
+      transition: all 1s ease;
+    }
+
+    .show-on-scroll {
+      opacity: 1 !important;
+      transform: translateY(0) !important;
+    }
+
+    .cat-card, .product-card, .categories h2, .featured-products h2 {
+      animation: float 3s ease-in-out infinite;
+    }
+
+    .product-card a {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: linear-gradient(135deg, #ff416c, #ff4b2b);
+      color: white;
+      font-weight: bold;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 0 20px rgba(255, 65, 108, 0.6);
+      transition: all 0.3s ease-in-out;
+      transform: scale(1);
+    }
+
+    .product-card a:hover {
+      transform: scale(1.1) rotate(-1deg);
+      box-shadow: 0 0 35px rgba(255, 65, 108, 0.9);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes slideInDown {
+      from { transform: translateY(-50px); opacity: 0; }
+      to { transform: translateY(0); opacity: 1; }
+    }
+
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+    }
+  </style>
+</head>
+<body>
+  <div class="animated-bg"></div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-dark bg-dark fixed-top">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">EcomStore</a>
+      <button class="btn btn-outline-light" type="button" data-bs-toggle="offcanvas" data-bs-target="#sidebar" aria-controls="sidebar">
+        ☰ Menu
+      </button>
+    </div>
+  </nav>
+
+  <!-- Sidebar -->
+  <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="sidebar" aria-labelledby="sidebarLabel">
+    <div class="offcanvas-header">
+      <h5 class="offcanvas-title" id="sidebarLabel">EcomStore</h5>
+      <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+    </div>
+    <div class="offcanvas-body">
+      <a href="products.html">Products</a>
+      <a href="offers.html">Offers</a>
+      <a href="about.html">About Us</a>
+      <a href="contact.html">Contact</a>
+      <a href="cart.html">Cart</a>
+      <a href="checkout.html">Checkout</a>
+      <hr class="text-secondary">
+      <a href="admin-dashboard.html">Admin</a>
+      <a href="admin-analytics.html">Analytics</a>
+      <a href="admin-categories.html">Categories</a>
+      <a href="admin-notifications.html">Notifications</a>
+      <a href="login.html" class="btn btn-danger btn-login w-100">Login</a>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Welcome to EcomStore</h2>
+      <p>Discover 3D Shopping Experiences</p>
+      <a href="products.html" class="btn-shop">Start Shopping</a>
+    </div>
+  </section>
+
+  <!-- Categories -->
+  <section class="categories">
+    <h2>Shop by Category</h2>
+    <div class="cat-container" style="display: flex; flex-wrap: wrap; justify-content: center; gap: 1rem;">
+      <div class="cat-card">👕 Fashion</div>
+      <div class="cat-card">📱 Electronics</div>
+      <div class="cat-card">💄 Beauty</div>
+      <div class="cat-card">🏠 Home</div>
+    </div>
+  </section>
+
+  <!-- Featured Products -->
+  <section class="featured-products">
+    <h2 style="text-align: center;">Featured Products</h2>
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="Smart Watch.jpg" alt="Smart Watch" />
+        <h3>Smart Watch</h3>
+        <p>$40</p>
+        <a href="products.html">🛒 Add to Cart</a>
+      </div>
+      <div class="product-card">
+        <img src="Bluetooth Headset.jpg" alt="Bluetooth Headset" />
+        <h3>Bluetooth Headset</h3>
+        <p>$25</p>
+        <a href="products.html">🛒 Add to Cart</a>
+      </div>
+      <div class="product-card">
+        <img src="Wireless Mouse.jpg" alt="Wireless Mouse" />
+        <h3>Wireless Mouse</h3>
+        <p>$18</p>
+        <a href="products.html">🛒 Add to Cart</a>
+      </div>
+      <div class="product-card">
+        <img src="Gaming Keyboard.jpg" alt="Gaming Keyboard" />
+        <h3>Gaming Keyboard</h3>
+        <p>$45</p>
+        <a href="products.html">🛒 Add to Cart</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer style="text-align: center; color: white; padding: 1rem;">
+    <p>&copy; 2025 EcomStore. All rights reserved.</p>
+    <div class="social">
+      <a href="#">📘</a>
+      <a href="#">📸</a>
+      <a href="#">🐦</a>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script>
+    // اجعل الأقسام تظهر مباشرة
+    const sections = document.querySelectorAll('.categories, .featured-products');
+    sections.forEach(sec => sec.classList.add('show-on-scroll'));
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

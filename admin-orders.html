@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Orders – Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-body">
+
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <h2>EcomStore 🛠</h2>
+      <ul>
+        <li><a href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="admin-products.html">Manage Products</a></li>
+        <li><a href="admin-orders.html" class="active">Orders</a></li>
+        <li><a href="admin-users.html">Users</a></li>
+        <li><a href="admin-customers.html">Customers</a></li>
+        <li><a href="admin-reviews.html">Reviews</a></li>
+        <li><a href="admin-reports.html">Reports</a></li>
+        <li><a href="admin-settings.html">Settings</a></li>
+        <li><a href="admin-roles.html">Roles</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main -->
+    <main class="admin-main">
+      <h1>🛒 Manage Orders</h1>
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>Order #</th>
+            <th>Customer</th>
+            <th>Items</th>
+            <th>Total</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#ORD001</td>
+            <td>Mohammed Ali</td>
+            <td>Smart Watch x1</td>
+            <td>$40</td>
+            <td><span class="status pending">Pending</span></td>
+            <td>
+              <button class="btn-status">Mark as Shipped</button>
+            </td>
+          </tr>
+          <tr>
+            <td>#ORD002</td>
+            <td>Manar Ali</td>
+            <td>Headphones x2</td>
+            <td>$50</td>
+            <td><span class="status shipped">Shipped</span></td>
+            <td>
+              <button class="btn-status">Mark as Delivered</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+</body>
+</html>

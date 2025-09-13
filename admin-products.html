@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Manage Products – Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-body">
+
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+      <h2>EcomStore 🛠</h2>
+      <ul>
+        <li><a href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="admin-products.html" class="active">Manage Products</a></li>
+        <li><a href="admin-orders.html">Orders</a></li>
+        <li><a href="admin-users.html">Users</a></li>
+        <li><a href="admin-customers.html">Customers</a></li>
+        <li><a href="admin-reviews.html">Reviews</a></li>
+        <li><a href="admin-reports.html">Reports</a></li>
+        <li><a href="admin-settings.html">Settings</a></li>
+        <li><a href="admin-roles.html">Roles</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main -->
+    <main class="admin-main">
+      <h1>📦 Manage Products</h1>
+
+      <div class="search-bar">
+        <input type="text" placeholder="🔍 Search products..." />
+        <button class="btn-search">Search</button>
+      </div>
+
+      <table class="admin-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Image</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Stock</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>#101</td>
+            <td><img src="Smart Watch.jpg" class="table-img" alt=""></td>
+            <td>Smart Watch</td>
+            <td>$40</td>
+            <td>25</td>
+            <td>
+              <button class="btn-edit">Edit</button>
+              <button class="btn-delete">Delete</button>
+            </td>
+          </tr>
+          <tr>
+            <td>#102</td>
+            <td><img src="Bluetooth Headset.jpg" class="table-img" alt=""></td>
+            <td>Wireless Headphones</td>
+            <td>$25</td>
+            <td>14</td>
+            <td>
+              <button class="btn-edit">Edit</button>
+              <button class="btn-delete">Delete</button>
+            </td>
+          </tr>
+          <!-- Wireless Mouse -->
+          <tr>
+            <td>#103</td>
+            <td><img src="Wireless Mouse.jpg" class="table-img" alt=""></td>
+            <td>Wireless Mouse</td>
+            <td>$15</td>
+            <td>30</td>
+            <td>
+              <button class="btn-edit">Edit</button>
+              <button class="btn-delete">Delete</button>
+            </td>
+          </tr>
+          <!-- Gaming Keyboard -->
+          <tr>
+            <td>#104</td>
+            <td><img src="Gaming Keyboard.jpg" class="table-img" alt=""></td>
+            <td>Gaming Keyboard</td>
+            <td>$45</td>
+            <td>18</td>
+            <td>
+              <button class="btn-edit">Edit</button>
+              <button class="btn-delete">Delete</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+</body>
+</html>

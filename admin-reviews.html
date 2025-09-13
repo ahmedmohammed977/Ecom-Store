@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Product Reviews – Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-body">
+
+  <div class="admin-container">
+    <aside class="admin-sidebar">
+      <h2>EcomStore 🛠</h2>
+      <ul>
+        <li><a href="admin-dashboard.html">Dashboard</a></li>
+        <li><a href="admin-products.html">Manage Products</a></li>
+        <li><a href="admin-orders.html">Orders</a></li>
+        <li><a href="admin-users.html">Users</a></li>
+        <li><a href="admin-customers.html">Customers</a></li>
+        <li><a href="admin-reviews.html" class="active">Reviews</a></li>
+        <li><a href="admin-reports.html">Reports</a></li>
+        <li><a href="admin-settings.html">Settings</a></li>
+        <li><a href="admin-roles.html">Roles</a></li>
+      </ul>
+    </aside>
+
+    <main class="admin-main">
+      <h1>⭐ Product Reviews</h1>
+
+      <table class="admin-table" style="margin-top: 2rem;">
+        <thead>
+          <tr>
+            <th>#</th>
+            <th>Customer</th>
+            <th>Product</th>
+            <th>Rating</th>
+            <th>Comment</th>
+            <th>Status</th>
+            <th>Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>1</td>
+            <td>Ahmed Khaled</td>
+            <td>Smart Watch</td>
+            <td>⭐⭐⭐⭐</td>
+            <td>Great product, fast delivery!</td>
+            <td><span class="badge pending">Pending</span></td>
+            <td>
+              <button class="btn-edit">Approve</button>
+              <button class="btn-delete">Reject</button>
+            </td>
+          </tr>
+          <tr>
+            <td>2</td>
+            <td>Salma Nabil</td>
+            <td>Wireless Earbuds</td>
+            <td>⭐⭐⭐</td>
+            <td>Good quality but delivery was slow.</td>
+            <td><span class="badge published">Published</span></td>
+            <td>
+              <button class="btn-delete">Remove</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </main>
+  </div>
+
+</body>
+</html>

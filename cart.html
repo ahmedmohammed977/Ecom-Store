@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Your Cart – EcomStore</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1 class="logo">EcomStore</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="offers.html">Offers</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="btn-login" href="login.html">Login</a>
+    </div>
+  </header>
+
+  <!-- Cart Section -->
+  <section class="cart-section">
+    <h2>Your Shopping Cart 🛒</h2>
+
+    <div class="cart-container" id="cart-items">
+      <!-- يتم ملء العناصر تلقائيًا بالـ JavaScript -->
+    </div>
+
+    <!-- Cart Summary -->
+    <div class="cart-summary">
+      <h3 id="total-price">Total: $0</h3>
+      <a href="checkout.html" class="btn-shop">Proceed to Checkout</a>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 EcomStore. All rights reserved.</p>
+    <div class="social">
+      <a href="#">📘</a>
+      <a href="#">📸</a>
+      <a href="#">🐦</a>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+    function loadCart() {
+      const cartItems = document.getElementById('cart-items');
+      const totalPrice = document.getElementById('total-price');
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cartItems.innerHTML = '';
+      let total = 0;
+
+      cart.forEach((item, index) => {
+        total += item.price;
+        cartItems.innerHTML += `
+          <div class="cart-item">
+            <img src="${item.image}" alt="${item.name}" width="80" height="80" style="border-radius: 10px; margin-right: 10px;" />
+            <div class="cart-details">
+              <h3>${item.name}</h3>
+              <p>Quantity: ${item.quantity || 1}</p>
+              <p>Price: $${item.price}</p>
+            </div>
+            <button class="btn-remove" onclick="removeItem(${index})">🗑 Remove</button>
+          </div>
+        `;
+      });
+
+      totalPrice.textContent = `Total: $${total}`;
+    }
+
+    function removeItem(index) {
+      let cart = JSON.parse(localStorage.getItem('cart')) || [];
+      cart.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cart));
+      loadCart();
+    }
+
+    // أول ما الصفحة تفتح
+    loadCart();
+  </script>
+
+</body>
+</html>

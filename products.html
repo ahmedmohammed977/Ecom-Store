@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>All Products – EcomStore</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .product-grid-page {
+      padding: 40px;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 30px;
+    }
+
+    .product-card {
+      background: #f9f9f9;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-5px);
+    }
+
+    .product-card img {
+      width: 180px;
+      height: 180px;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border-radius: 10px;
+    }
+
+    .product-card h3 {
+      font-size: 1.1rem;
+      margin: 10px 0 5px;
+    }
+
+    .product-card p {
+      font-weight: bold;
+      color: #28a745;
+      margin-bottom: 10px;
+    }
+
+    .btn-add-to-cart {
+      background-color: #007bff;
+      color: #fff;
+      border: none;
+      padding: 8px 14px;
+      border-radius: 6px;
+      cursor: pointer;
+      font-size: 0.95rem;
+      margin-top: 5px;
+    }
+
+    .btn-add-to-cart:hover {
+      background-color: #0056b3;
+    }
+
+    .wishlist-btn {
+      display: inline-block;
+      margin-top: 8px;
+      font-size: 1.3rem;
+      text-decoration: none;
+      color: #ff4d4d;
+    }
+
+    .page-title {
+      text-align: center;
+      padding: 40px 0 20px;
+      background: #f0f0f0;
+    }
+
+    .page-title h2 {
+      margin: 0;
+      font-size: 2rem;
+    }
+
+    .page-title p {
+      color: #666;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <h1 class="logo">EcomStore</h1>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html">Home</a></li>
+          <li><a href="products.html">Products</a></li>
+          <li><a href="offers.html">Offers</a></li>
+          <li><a href="cart.html">Cart</a></li>
+          <li><a href="about.html">About Us</a></li>
+          <li><a href="contact.html">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="btn-login" href="login.html">Login</a>
+    </div>
+  </header>
+
+  <!-- Page Title -->
+  <section class="page-title">
+    <h2>All Products</h2>
+    <p>Browse our latest collections</p>
+  </section>
+
+  <!-- Product Grid -->
+  <section class="product-grid-page">
+    <div class="product-grid">
+      <div class="product-card">
+        <img src="Smart Watch.jpg" alt="Smart Watch">
+        <h3>Smart Watch</h3>
+        <p>$40</p>
+        <button class="btn-add-to-cart" onclick="addToCart('Smart Watch', 40, 'Smart Watch.jpg')">🛒 Add to Cart</button>
+        <a href="#" class="wishlist-btn" onclick="addToFavorites('Smart Watch', 40, 'Smart Watch.jpg')" title="Add to Favorites">❤️</a>
+      </div>
+
+      <div class="product-card">
+        <img src="Bluetooth Headset.jpg" alt="Bluetooth Headset">
+        <h3>Bluetooth Headset</h3>
+        <p>$25</p>
+        <button class="btn-add-to-cart" onclick="addToCart('Bluetooth Headset', 25, 'Bluetooth Headset.jpg')">🛒 Add to Cart</button>
+         <a href="#" class="wishlist-btn" onclick="addToFavorites('Bluetooth Headset', 25, 'Bluetooth Headset.jpg')" title="Add to Favorites">❤️</a>
+      </div>
+
+      <div class="product-card">
+        <img src="Wireless Mouse.jpg" alt="Wireless Mouse">
+        <h3>Wireless Mouse</h3>
+        <p>$15</p>
+        <button class="btn-add-to-cart" onclick="addToCart('Wireless Mouse', 15, 'Wireless Mouse.jpg')">🛒 Add to Cart</button>
+        <a href="#" class="wishlist-btn" onclick="addToFavorites('Wireless Mouse', 15, 'Wireless Mouse.jpg')" title="Add to Favorites">❤️</a>
+      </div>
+
+      <div class="product-card">
+        <img src="Gaming Keyboard.jpg" alt="Gaming Keyboard">
+        <h3>Gaming Keyboard</h3>
+        <p>$45</p>
+        <button class="btn-add-to-cart" onclick="addToCart('Gaming Keyboard', 45, 'Gaming Keyboard.jpg')">🛒 Add to Cart</button>
+        <a href="#" class="wishlist-btn" onclick="addToFavorites('Gaming Keyboard', 45, 'Gaming Keyboard.jpg')" title="Add to Favorites">❤️</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 EcomStore. All rights reserved.</p>
+    <div class="social">
+      <a href="#">📘</a>
+      <a href="#">📸</a>
+      <a href="#">🐦</a>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
+  <script>
+  function addToCart(name, price, image) {
+  let cart = JSON.parse(localStorage.getItem('cart')) || [];
+  cart.push({ name, price, image });
+  localStorage.setItem('cart', JSON.stringify(cart));
+  alert('✅ ' + name + ' has been added to the cart!');
+}
+
+
+
+  function addToFavorites(name, price, image) {
+    let fav = JSON.parse(localStorage.getItem('favorites')) || [];
+    const exists = fav.some(item => item.name === name);
+    if (!exists) {
+      fav.push({ name, price, image });
+      localStorage.setItem('favorites', JSON.stringify(fav));
+      alert('❤️ ' + name + ' has been added to Favorites!');
+    } else {
+      alert('ℹ️ ' + name + ' is already in your Favorites.');
+    }
+  }
+</script>
+
+
+</body>
+</html>

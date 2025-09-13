@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard – EcomStore</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body class="admin-body">
+
+  <div class="admin-container">
+    <!-- Sidebar -->
+    <aside class="admin-sidebar">
+        <div class="dark-mode-toggle">
+  <input type="checkbox" id="darkToggle" class="dark-toggle">
+  <label for="darkToggle">🌙 Dark Mode</label>
+</div>
+
+      <h2>EcomStore 🛠</h2>
+      <ul>
+        <li><a href="admin-dashboard.html" class="active">Dashboard</a></li>
+        <li><a href="admin-products.html">Manage Products</a></li>
+        <li><a href="admin-orders.html">Orders</a></li>
+        <li><a href="admin-users.html">Users</a></li>
+        <li><a href="admin-customers.html">Customers</a></li>
+        <li><a href="admin-reviews.html">Reviews</a></li>
+        <li><a href="admin-reports.html">Reports</a></li>
+        <li><a href="admin-settings.html">Settings</a></li>
+        <li><a href="admin-roles.html">Roles</a></li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="admin-main">
+      <h1>Admin Dashboard 📊</h1>
+
+      <div class="admin-cards">
+        <div class="admin-card">
+          <h3>📦 Products</h3>
+          <p>0 Items</p>
+        </div>
+        <div class="admin-card">
+          <h3>🛒 Orders</h3>
+          <p>0 Orders</p>
+        </div>
+        <div class="admin-card">
+          <h3>👥 Users</h3>
+          <p>50 Users</p>
+        </div>
+        <div class="admin-card">
+          <h3>💰 Revenue</h3>
+          <p>$0</p>
+        </div>
+      </div>
+    </main>
+  </div>
+<script>
+  const toggle = document.getElementById('darkToggle');
+
+  // حفظ الوضع في localStorage
+  if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    toggle.checked = true;
+  }
+
+  toggle.addEventListener('change', function () {
+    if (this.checked) {
+      document.body.classList.add('dark-mode');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.body.classList.remove('dark-mode');
+      localStorage.setItem('theme', 'light');
+    }
+  });
+</script>
+
+</body>
+</html>
